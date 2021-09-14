@@ -1,2 +1,2 @@
-web: gunicorn vacunacion_backend.wsgi --log.file -
+web: gunicorn vacunacion_backend.wsgi --log-file -
 
