@@ -1,8 +1,20 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Usuario
-from .serializers import UsuarioSerializer
+from .serializers import UsuarioSerializer,UserLoginSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework import status
+
+class UserLoginAPIView(APIView):
+    def post(self, request, *args, **Kwargs):
+        serializer = UserLoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user, token = serializer.save()
+        data = {
+          'user': UsuarioSerializer(user).data,
+          'access_token': token
+        }
+        return Response(data,status=status.HTTP_201_CREATED)
 
 class ListarUsuarios(APIView):
     # metodo http
