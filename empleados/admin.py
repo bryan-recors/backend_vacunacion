@@ -6,7 +6,7 @@ from empleados.models import Usuario
 class MyUserAdmin(UserAdmin):
     model = Usuario
     fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('cedula','fecha_nacimiento','direccion','telefono_movil','estado_vacunacion','tipo_vacuna','fecha_vacunacion','numero_dosis')}),
+            (None, {'fields': ('cedula','nombres','apellidos','fecha_nacimiento','direccion','telefono_movil','estado_vacunacion','tipo_vacuna','fecha_vacunacion','numero_dosis')}),
     )
 
 admin.site.register(Usuario,MyUserAdmin)

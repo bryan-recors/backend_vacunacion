@@ -10,7 +10,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         # modelo a serializar
         model = Usuario
         # tupla con los elelmentos a serializar
-        fields = ('id','cedula','nombres','apellidos', 'email', 'username','fecha_nacimiento', 'direccion', 'telefono_movil',
+        fields = ('id','cedula','nombres','apellidos', 'email','is_superuser', 'username','fecha_nacimiento', 'direccion', 'telefono_movil',
                   'estado_vacunacion', 'tipo_vacuna','fecha_vacunacion', 'numero_dosis')
 
 class UserLoginSerializer(serializers.Serializer):
